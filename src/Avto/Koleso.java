@@ -33,7 +33,7 @@ public class Koleso {
         this.visota = 55;
         this.tip_diska = "Литье";
         this.id = 050120 + kolvo_koles;
-        this.otnoschenie = -1;
+//        this.otnoschenie = -1;
         kolvo_koles = kolvo_koles + 1;
     }
    
@@ -150,6 +150,16 @@ public class Koleso {
     {
         id_kolesa = id_kolesa + 1;
         return id_kolesa;
+    }
+    
+    public String dannii()
+    {
+        return (this.shirina + "/" + this.visota + "/" + this.diametr);
+    }
+    
+    public double diametr_info()
+    {
+        return (this.diametr);
     }
     
     public static int id_return()

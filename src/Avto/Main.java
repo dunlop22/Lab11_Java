@@ -10,6 +10,27 @@ import java.util.ArrayList;
 import java.util.List;
 public class Main {
 
+    
+    public static void table_print(Koleso [][]Kol_Massiv)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+                System.out.println("*************************************************");
+                for (int j = 0; j < 4; j++)
+                {
+                        if (Kol_Massiv[i][j].diametr_info() != -1)
+                        {
+                                System.out.print("* " + Kol_Massiv[i][j].dannii() + " ");
+                        }
+                        else
+                        {
+                                System.out.print("*           ");
+                        }
+                }
+                System.out.println("*");
+        }
+        System.out.println("*************************************************");
+    }
     public static void main(String[] args) throws IOException
     {
         Scanner in1 = new Scanner(System.in);        //инициализация сканера
@@ -225,8 +246,40 @@ public class Main {
                     break;
                 case 8:
                     key = 9;
+                    Koleso[][] Kol_mass_ = new Koleso[4][4];
+                    Koleso temp1 = new Koleso();
                     
-                    System.out.println("Введите количество коробок в массиве: ");
+                    for (int i = 0;i < 4; i++)
+                    {
+                        for (int j = 0;j < 4; j++)    
+                        {
+                            Kol_mass_[i][j] = new Koleso(-1);
+                        }
+                    }
+                    int podmenu;
+                    do
+                    {
+                        temp1.new_koleso_info();
+                        table_print(Kol_mass_);
+                        int m, k;
+                        System.out.print("Введите номер строки: ");
+                        do
+                        {
+                            m = in.nextInt();
+                        } while (m < 1 || m > 4);
+                        System.out.print("Введите номер стобца: ");
+                        do
+                        {
+                            k = in.nextInt();
+                        } while (k < 1 || k > 4);
+
+                        Kol_mass_[m-1][k-1] = temp1;
+                        table_print(Kol_mass_);
+                        System.out.print("0) Выход в меню\nЛюбая клавиша - продолжение заполнения массива");
+                        podmenu = in.nextInt();
+                    } while (podmenu != 0);
+                    
+                    /*System.out.println("Введите количество коробок в массиве: ");
                     int m;
                     m = -1;
                     do
@@ -256,7 +309,8 @@ public class Main {
                         Kor2.prosmotr_korobka();
                         System.out.println("\n");    
                     }
-                    System.out.println("\n\n\n");    
+                    System.out.println("\n\n\n");
+                        */
                     break;
             }
         } while (main_key != 0);
