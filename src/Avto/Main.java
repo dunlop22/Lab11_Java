@@ -25,7 +25,7 @@ public class Main {
         Scanner in = new Scanner(System.in);        //инициализация сканера
         do
 	{
-            System.out.println("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Автомобиль\n6) Конструкторы\n7) Инициализация массива через конструктор с одним параметром\n8) String\n\n0) - выход");
+            System.out.println("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Автомобиль\n6) Конструкторы\n7) Одномерный массив параметром\n8) Двумерный массив\n\n0) - выход");
             main_key = in1.nextInt();
             switch (main_key) {
                 case 1:
@@ -189,8 +189,24 @@ public class Main {
                     break;
                 case 7:
                     key = 9;
-                    Koleso [] Kol_mass = new Koleso[3];
-                    for (int i = 0;i < 3; i++)
+                    Koleso Kol_mass[] = new Koleso[10];
+                    Koleso temp = new Koleso();
+                    int n;
+
+                    System.out.print("Введите количество колес в массиве: ");
+                    do
+                    {
+                        n = in.nextInt();
+                    } while (n < 0);
+                    for (int i = 0;i < n; i++)
+                    {
+                        
+                        
+                        temp.new_koleso(130.0 + i * 5, 13.0 + i * 2, 30 + i * 4, "Enkei №" + (i + 1) + " Japan");
+                        Kol_mass[n] = temp;
+                        Kol_mass[n].prosmotr_koleso();
+                    }
+                    /*
                     {
                         Kol_mass[i] = new Koleso(12);
                         System.out.println("\n");
